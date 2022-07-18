@@ -118,3 +118,12 @@ calculate.onclick = ()=>{
     window.open("./Carrito.html", "_blank");
     }
 
+    
+        fetch('https://jsonplaceholder.typicode.com/todos')
+            .then( (resp) => resp.json())
+            .then( (json) => console.log((json)))
+
+
+
+
+        
