@@ -51,8 +51,10 @@ a{
 color: white;
 text-align: center;
 font-family: 'Work Sans', sans-serif;}
+
 .list-group-item{
     color: black;}
+
 .carrito{
     color: beige}
 
@@ -64,8 +66,10 @@ font-family: 'Work Sans', sans-serif;}
 
 .precio{
     color: beige;}
+
 .total{
     color: beige;}
+
 .card{
     padding: 2rem;
     display: inline-block;
@@ -77,8 +81,10 @@ font-family: 'Work Sans', sans-serif;}
 .pagos2{
     text-align: center;
     padding: 2rem;}
+
 .card-title{
     font-size: 15px;}
+    
 .tiempoviaje{
     align-items: center;
     text-align: center;
@@ -102,17 +108,18 @@ font-family: 'Work Sans', sans-serif;}
     color: white;
 text-align: center;
 font-family: 'Work Sans', sans-serif;
-font-size: 20px;
-}
+font-size: 20px;}
 
 #finalizar{
     color: rgb(0, 0, 0);
     text-align: center;
     font-family: 'Work Sans', sans-serif;
     font-size: 20px;
-    align-items: center;
-}
+    align-items: center;}
 
 .finalizar{
     text-align: center;
-}
+    padding: 10rem;}
+
+
+

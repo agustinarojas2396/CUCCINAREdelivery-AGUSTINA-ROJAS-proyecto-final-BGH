@@ -1,4 +1,4 @@
-// Definimos clase Producto
+// Defino clase Producto
 class Producto{
     constructor(id, nombre, precio, imagen, tipo){
         this.id = id;
@@ -9,7 +9,7 @@ class Producto{
     }
 }
 
-// Definimos clase Carrito
+// Defino clase Carrito
 class Carrito{
     constructor(id, producto, cantidad, total){
         this.id = id;
@@ -26,7 +26,7 @@ class TipoProducto{
     }
 }
 
-// Cargamos array con tipo de productos
+// Cargo array con tipo de productos
 const tipoProductos = [
     new TipoProducto (0, "comidas"),
     new TipoProducto (1, "bebidas"),
@@ -35,7 +35,7 @@ const tipoProductos = [
 ]
 
 
-// Cargamos array con productos
+// Cargo array con productos
 const productos = 
 [
     new Producto(0, "Milanesas con puré", 500, "./media/milaspapitas.jpeg", 0),
@@ -51,13 +51,13 @@ const productos =
     new Producto(10, "Fernet", 900, "./media/fernet.jpg", 3)
 ];
 
-// Inicializamos array carrito vacio
+// Inicializo array carrito vacio
 var carrito = [];
 var carritoId = 0;
 
-// Recorremos array productos
+// Recorro array productos
 productos.forEach(item => {
-    // Generamos el html para cada producto
+    // Genero el html para cada producto
     if(item.tipo == 0 ) {
         document.getElementById("panelProductosComidas").innerHTML = document.getElementById("panelProductosComidas").innerHTML + "<div class='card' style='width: 18rem; ' id='card_producto" + item.id + "'><img src='" + item.imagen + "' class='card-img-top' alt='...'><div class='card-body'><h5 class='card-title'>" + item.nombre + "</h5></div><ul class='list-group list-group-flush'><li class='list-group-item'>$ " + item.precio + "</li><li class='list-group-item'><p>Cantidad</p><input type='text' id='cantidadProducto_"+ item.id +"'></input></li></ul><div class='card-body'><a href='#panelCarrito'  class='card-link' onclick='agregarItem("+ item.id +")'>Agregar al carrito</a></div></div>";
     }
@@ -70,11 +70,11 @@ productos.forEach(item => {
     if(item.tipo == 3) {
         document.getElementById("panelProductosBebidasAlcoholicas").innerHTML = document.getElementById("panelProductosBebidasAlcoholicas").innerHTML + "<div class='card' style='width: 18rem; ' id='card_producto" + item.id + "'><img src='" + item.imagen + "' class='card-img-top' alt='...'><div class='card-body'><h5 class='card-title'>" + item.nombre + "</h5></div><ul class='list-group list-group-flush'><li class='list-group-item'>$ " + item.precio + "</li><li class='list-group-item'><p>Cantidad</p><input type='text' id='cantidadProducto_"+ item.id +"'></input></li><li class='list-group-item' style='display:none' id='liCantProducto_"+ item.id +"'>Cantidad:&nbsp;&nbsp;<p id='cantidadProducto_" + item.id +"'></p></li></ul><div class='card-body'><a href='#panelCarrito'  class='card-link' onclick='agregarItem("+ item.id +")'>Agregar al carrito</a></div></div>";
     }
-});
+    });
 
-// Funcion en donde agregamos el producto al carrito
+// Función en donde agrego el producto al carrito
 function agregarItem(productoId){    
-    // Buscamos por id de producto en el array de productos
+    // Busco por id de producto en el array de productos
     let producto = productos.find(f => f.id == productoId);    
 
     let cantidad = parseInt(document.getElementById("cantidadProducto_" + productoId).value);
@@ -84,21 +84,21 @@ function agregarItem(productoId){
 
     document.getElementById("itemsCarrito").innerHTML = document.getElementById("itemsCarrito").innerHTML + "<div style='display:inline-flex; color:white; align-items: baseline;' id='itemCarrito_"+ producto.id +"'><p>"+ producto.nombre +" x<p style='padding-right:10px'>"+ cantidad +"</p></p><button class='btn btn-default' title='Eliminar' onclick='eliminarItem("+ producto.id +")'>X</button></div>"; 
     document.getElementById("total").innerHTML = (parseInt(document.getElementById("total").innerHTML) + producto.precio * cantidad);
-}
+    }
 
 function eliminarItem(productoId){    
     document.getElementById("total").innerHTML = parseInt(document.getElementById("total").innerHTML) - (carrito.find(f => f.producto.id == productoId)).total;
     document.getElementById("itemCarrito_" + productoId).remove();
     let posicion = carrito.findIndex(f => f.producto.id == productoId);
     carrito.splice(posicion, 1);    
-}
+    }
 
 function vaciarCarrito(){
     carrito.splice(0, carrito.length);
 
     document.getElementById("itemsCarrito").innerHTML = "";
     document.getElementById("total").innerHTML = "0";
-}
+    }
 
 calculate.onclick = ()=>{
     let inputNumber = document.getElementById('input_number');
@@ -111,19 +111,28 @@ calculate.onclick = ()=>{
     let edad = año - numero;
 
     (edad >=18) ? result.innerHTML = 'Puedes seleccionar bebidas alcohólicas' :  result.innerHTML = 'No puedes seleccionar bebidas alcoholicas';   
-}
+    }
 
     function verPedido(){
     localStorage.setItem("itemsCarrito", JSON.stringify(carrito));
     window.open("./Carrito.html", "_blank");
     }
 
-    
-        fetch('https://jsonplaceholder.typicode.com/todos')
-            .then( (resp) => resp.json())
-            .then( (json) => console.log((json)))
+//Fetch
+    fetch('https://jsonplaceholder.typicode.com/todos')
+        .then( (resp) => resp.json())
+        .then( (json) => console.log((json)))
 
+//Asincronía
+    for(let cuccinare of "Disfrute"){
+        setTimeout(()=>{
+            console.log(cuccinare);
+        }, 1000);
+    }
 
+    for(let cuccinare of " de su comida!"){
+        setTimeout(()=>{
+            console.log(cuccinare);
+        }, 1500);
+    }
 
-
-        
